@@ -9,9 +9,9 @@ def check(open_brackets, close_brackets, str):
         elif c in close_brackets:
             if not stack: #if the stack is empty, we don't have opening open brackets for our close brackets so we return the index of the first closing open bracket
                 return i
-            check = stack.pop()
-            if check != c:
+            if open_brackets[stack[-1][0]] != c:
                 return i
+            stack.pop()
     if stack:
         return stack[-1][1]
     return "success"
